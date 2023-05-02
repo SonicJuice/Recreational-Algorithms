@@ -12,3 +12,6 @@ def isPrime(n):
             return False
         i += 6
     return True
+
+if __name__ == '__main__':
+    print(isPrime(104743))
