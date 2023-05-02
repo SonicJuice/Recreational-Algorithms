@@ -1,3 +1,4 @@
+from math import sqrt
 def isPrime(n):
     """ all primes > 3 are writable as '6k + 1' or '6k - 1', where 'k' is a positive integer. """
     if n <= 3:
