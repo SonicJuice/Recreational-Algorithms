@@ -1,4 +1,4 @@
-#Here's where I'll work on implementations of algorithms used in number theory, before iteratively optimising them!
+Here's where I'll work on implementations of algorithms used in number theory, before iteratively optimising them!
 
 Currently, these include:
 
