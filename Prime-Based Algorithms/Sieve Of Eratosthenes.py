@@ -23,13 +23,7 @@ def sieveOfEratosthenes(limit):
 
     return primes
 
-def nthPrime(n):
-    primes = sieveOfEratosthenes(10 ** 8)
-    if n > len(primes):
-        return None
-    return primes[n - 1]
-
 if __name__ == '__main__':
-    print(nthPrime())
+    sieveOfEratosthenes(10 ** 8))
 
 """ time complexity: 'O(n log log n)' """
