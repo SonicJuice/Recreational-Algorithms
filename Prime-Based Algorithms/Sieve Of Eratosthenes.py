@@ -24,6 +24,6 @@ def sieveOfEratosthenes(limit):
     return primes
 
 if __name__ == '__main__':
-    sieveOfEratosthenes(10 ** 8))
+    sieveOfEratosthenes(10 ** 8)
 
 """ time complexity: 'O(n log log n)' """
