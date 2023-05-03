@@ -14,4 +14,4 @@ def isPrime(n):
     return True
 
 if __name__ == '__main__':
-    print(isPrime(104743))
+    print(isPrime())
