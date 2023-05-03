@@ -3,7 +3,7 @@ import numpy as np
 
 def sieveOfEratosthenes(limit):
     if limit < 2:
-        return []
+        return
 
     """ represents the number of odds <= 'limit'. """
     size = (limit - 1) // 2
