@@ -17,7 +17,8 @@ def sieveOfEratosthenes(limit):
             """ updates all elements of 'prime' that correspond to multiples of the current prime 'p'. """
             prime[i + p::p] = False
           
-    """ '.concatenate()' joins two or more arrays along a specified axis; '.arrange()' returns evenly spaced values within a given interval (in the case of three arguments, values are generated within the half-open interval, with spacing between values given by step). """
+    """ '.concatenate()' joins two or more arrays along a specified axis; '.arrange()' returns evenly spaced values within a 
+    given interval (in the case of three arguments, values are generated within the half-open interval, with spacing between values given by step). """
     primes = np.concatenate(([2], np.arange(3, limit, 2)[prime[1:]]))
 
     return primes
