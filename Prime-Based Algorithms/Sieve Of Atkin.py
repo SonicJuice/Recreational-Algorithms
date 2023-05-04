@@ -22,7 +22,7 @@ def sieveOfAtkin(limit):
             if n <= limit and n % 12 == 7:
                 sieve[n] = not sieve[n]
 
-            """ c) 'n = (3 * x * x) - (y * y)' has an odd no. of solutions 'x > y and n % 12 = 11'. """
+            """ c) 'n = (3 * x * x) - (y * y)' has an odd no. of solutions 'if x > y ** 0.5 and n % 12 = 11'. """
             if x > y_square ** 0.5:
                 n = 3 * x_square - y_square
                 if n <= limit and n % 12 == 11:
