@@ -17,12 +17,11 @@ def sieveOfEratosthenes(limit):
             p = i * 2 + 1
             """ updates all elements of 'prime' that correspond to multiples of the current prime 'p'. """
             prime[i + p::p] = False
-          
-    """ '.concatenate()' joins two or more arrays along a specified axis; '.arrange()' returns evenly spaced values within a given 
-    interval (in the case of three arguments, values are generated within the half-open interval, with spacing between values given 
-    by step). """
-    primes = np.concatenate(([2], np.arange(3, limit, 2)[prime[1:]]))
 
+    """ '.concatenate()' joins two or more arrays along a specified axis; '.nonzero()' computes the indices of non-zero elements, 
+    returning a tuple of arrays, one for each dimension, containing said indices that dimension."""
+    primes = np.concatenate(([2], np.nonzero(prime)[0] * 2 + 1))
+    
     return primes
 
 if __name__ == '__main__':
