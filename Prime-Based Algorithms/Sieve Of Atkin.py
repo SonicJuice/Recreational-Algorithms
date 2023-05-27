@@ -1,6 +1,6 @@
 def sieveOfAtkin(limit):
     if limit < 2:
-        return
+        return 
 
     """ all numbers within the limit are deemed composites, which are sieved in three layers: """
     sieve = [False] * (limit + 1)
@@ -11,8 +11,7 @@ def sieveOfAtkin(limit):
     for x in range(1, sqrt_limit):
         x_square = squares[x - 1]
         for y_square in squares:
-            """ a) 'n = (4 * x * x) + (y * y)' has an odd no. of solutions (i.e., there's an odd number of distinct pairs '(x, y)' 
-            that satisfy 'and n % 12 = 1 or n % 12 = 5'). """
+            """ a) 'n = (4 * x * x) + (y * y)' has an odd no. of solutions (i.e., there's an odd number of distinct pairs '(x, y)' that satisfy 'and n % 12 = 1 or n % 12 = 5'). """
             n = 4 * x_square + y_square
             if n <= limit and (n % 12 == 1 or n % 12 == 5):
                 sieve[n] = not sieve[n]
@@ -28,16 +27,14 @@ def sieveOfAtkin(limit):
                 if n <= limit and n % 12 == 11:
                     sieve[n] = not sieve[n]
 
-    """ 'yield' returns a generator object to the function caller, rather than a value. """
-    yield 2
-    yield 3
-
     """ mark all multiples of squares as non-prime. """
+    primes = [2, 3]
     for n in range(3, limit + 1):
         if sieve[n]:
-            yield n
+            primes.append(n)
             for k in range(n * n, limit + 1, 2 * n * n):
                 sieve[k] = False
+    return primes
 
 if __name__ == '__main__':
     sieveOfAtkin(10 ** 8)
