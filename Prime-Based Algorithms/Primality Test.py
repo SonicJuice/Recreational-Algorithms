@@ -6,7 +6,7 @@ def isPrime(n):
     if n % 2 == 0 or n % 3 == 0:
         return False
     i = 5
-    """ only need to check if 'n' is divisible by primes of the aforementioned forms up to the 'sqrt(n)'. """
+    """ only need to check if 'n' is divisible by primes of the aforementioned forms up to 'sqrt(n)'. """
     while i <= int(sqrt(n)):
         if n % i == 0 or n % (i + 2) == 0:
             return False
@@ -15,3 +15,5 @@ def isPrime(n):
 
 if __name__ == '__main__':
     print(isPrime())
+
+""" time complexity: 'O(sqrt(n))' """
