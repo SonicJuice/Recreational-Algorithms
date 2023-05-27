@@ -11,8 +11,8 @@ def sieveOfAtkin(limit):
     for x in range(1, sqrt_limit):
         x_square = squares[x - 1]
         for y_square in squares:
-            """ a) 'n = (4 * x * x) + (y * y)' has an odd no. of solutions (i.e., there's an odd number of distinct pairs '(x, y)' that satisfy 
-            'and n % 12 = 1 or n % 12 = 5'). """
+            """ a) 'n = (4 * x * x) + (y * y)' has an odd no. of solutions (i.e., there's an odd number of distinct pairs '(x, y)' 
+            that satisfy 'and n % 12 = 1 or n % 12 = 5'). """
             n = 4 * x_square + y_square
             if n <= limit and (n % 12 == 1 or n % 12 == 5):
                 sieve[n] = not sieve[n]
