@@ -32,8 +32,8 @@ def sieveOfAtkin(limit):
     yield 2
     yield 3
 
-    """ mark all mulitples of squares as non-prime. """
-    for n in range(5, limit + 1):
+    """ mark all multiples of squares as non-prime. """
+    for n in range(3, limit + 1):
         if sieve[n]:
             yield n
             for k in range(n * n, limit + 1, 2 * n * n):
