@@ -40,7 +40,8 @@ def saveFile(file_name, contents):
 #---------------------------------------------------------
 
 def generateKey():
-    """ 'chr()' returns the character of a given Unicode code, which generates eight random ASCII characters; '.join()' returns a string by joining all elements of an iterable. '_' is a placeholder for generated values. """
+    """ 'chr()' returns the character of a given Unicode code, which generates eight random ASCII characters; '.join()' returns a 
+    string by joining all elements of an iterable. '_' is a placeholder for generated values. """
     cypher_key = "".join(chr(randint(33, 126)) for _ in range(8))
     print("Cypher Key:", cypher_key)
     return cypher_key
@@ -131,3 +132,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+""" time complexity: 'O(m * k)', where 'm' is the number of lines, and 'k' is the average number of characters per line' """
