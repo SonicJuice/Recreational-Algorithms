@@ -28,7 +28,7 @@ def loadFile(file_name):
             return [line.strip() for line in file]
     except FileNotFoundError:
         print(f"File '{file_name}' not found; please try again.")
-        return None
+        return
 
 #---------------------------------------------------------
 
