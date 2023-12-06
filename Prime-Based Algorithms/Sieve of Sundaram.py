@@ -14,7 +14,7 @@ def sieveOfSundaram(limit):
             i += 1
 
     """ after iterating through all pairs, generate primes via 'sieve', then calculate an odd prime (represented by 'True'). 
-    Finally, calculate this prime via '2 * i + 1.' """
+    Finally, calculate this prime via '2 * i + 1'; 'enumerate()' returns a collection as an enumerate object, adding a counter as its key. """
     primes = [2] + [(2 * i + 1) for i, is_prime in enumerate(sieve) if is_prime]
     return primes
   
