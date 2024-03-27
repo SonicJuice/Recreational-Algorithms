@@ -1,6 +1,7 @@
-Here's where I'll work on implementations of number theory-based algorithms that I've researched, before iteratively optimising them!
+# Python Number Theory Research
+An evironment for testing implementations of number theory-based algorithms that I've researched!
 
-Currently, these include:
+These include:
 
 Prime-Based Algorithms!
 
