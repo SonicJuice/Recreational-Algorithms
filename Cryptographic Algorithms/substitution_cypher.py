@@ -1,6 +1,7 @@
 from random import randint
 from pathlib import Path
 
+
 class SubstitutionCipher:
     def __init__(self):
         self.valid_choices = ["a", "b", "c"]
@@ -22,7 +23,7 @@ class SubstitutionCipher:
             with open(file_name, "rt") as file:
                 return [line.strip() for line in file]
         except FileNotFoundError:
-            print(f"File '{file_name}' not found.")
+            print(f"{file_name} not found.")
             return
 
     def save_file(self, file_name, contents):
@@ -30,20 +31,25 @@ class SubstitutionCipher:
             file.write("\n".join(contents))
 
     def generate_key(self):
+        """ 'chr()' returns the character of a given Unicode, which generates eight random ASCII characters; 
+        '.join()' returns a string """
         self.cypher_key = "".join(chr(randint(33, 126)) for _ in range(8))
         print("Cypher Key:", self.cypher_key)
 
     def encrypt(self, plain_text):
         if self.cypher_key is None:
-            print("Error: Cypher key not generated.")
+            print("Cypher key not generated.")
             return
+        """ 'ord()' returns the Unicode of a given character, being performed on each 'cypher_key' character. """
         key_vals = [ord(key_char) for key_char in self.cypher_key]
         return ["".join(self._encrypt_char(char, key_char, key_vals) for char, key_char in zip(line, self.cypher_key))
             for line in plain_text]
 
     def _encrypt_char(self, char, key_char, key_vals):
         val = ord(char)
+        """ add 'cypher_key' characters' corresponding Unicode. """
         val += key_vals[0]
+        """ ensure the result stays within the printable ASCII range. """
         while val > 126:
             val -= 94
         while val < 33:
@@ -63,7 +69,7 @@ class SubstitutionCipher:
 
     def decrypt(self, cypher_text):
         if self.cypher_key is None:
-            print("Error: Cypher key not provided.")
+            print("Cypher key not provided.")
             return
         key_vals = [ord(key_char) for key_char in self.cypher_key]
         return ["".join(self._decrypt_char(char, key_char, key_vals) for char, key_char in zip(line, self.cypher_key))
@@ -98,4 +104,5 @@ def main(self):
             return
             
 if __name__ == '__main__':
+    """ time complexity: 'O(m * k)', where 'm' is the number of lines, and 'k' is the average number of characters per line """
     main()
