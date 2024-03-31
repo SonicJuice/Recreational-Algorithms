@@ -85,6 +85,7 @@ class SubstitutionCipher:
         return chr(val)
 
 def main(self):
+    """ time complexity: 'O(m * k)', where 'm' is the number of lines, and 'k' is the average number of characters per line """
     cipher = SubstitutionCipher()
     while True:
         choice = cipher.menu()
@@ -102,7 +103,3 @@ def main(self):
             cipher.save_file(file_name, plain_text)
         elif choice == "c":
             return
-            
-if __name__ == '__main__':
-    """ time complexity: 'O(m * k)', where 'm' is the number of lines, and 'k' is the average number of characters per line """
-    main()
