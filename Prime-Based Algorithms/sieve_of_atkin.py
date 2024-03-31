@@ -30,9 +30,7 @@ def sieve_of_atkin(limit):
             primes.append(n)
             for k in range(n * n, limit + 1, 2 * n * n):
                 sieve[k] = False
-    return primes
-
-if __name__ == '__main__':
+    
     """ time complexity: 'O(n / log log n)'; traditionally faster than Eratosthenes
     as more composites are sieved in fewer iterations. """
-    sieve_of_atkin(10 ** 8)
+    return primes
