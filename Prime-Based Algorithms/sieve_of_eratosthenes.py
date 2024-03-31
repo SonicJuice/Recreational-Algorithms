@@ -15,8 +15,8 @@ def sieve_of_eratosthenes(limit):
             p = i * 2 + 1
             """ updates all elements of 'prime' that correspond to multiples of the current prime 'p'. """
             prime[i + p::p] = False
-    """ 'np.concatenate()' joins two or more arrays along a specified axis; '.nonzero()' computes the indices of non-zero elements, 
-    returning a tuple of arrays, one for each dimension, containing said indices for that dimension."""
+    """ 'np.concatenate()' joins two or more arrays along an axes (row and column); '.nonzero()' computes the indices of non-zero elements, 
+    returning a tuple of arrays for each axes."""
     primes = np.concatenate(([2], np.nonzero(prime)[0] * 2 + 1))
     return primes
 
