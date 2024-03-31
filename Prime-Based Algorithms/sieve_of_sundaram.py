@@ -13,8 +13,5 @@ def sieve_of_sundaram(limit):
     """ after iterating through all pairs, generate primes via 'sieve', then calculate an odd prime (represented by 'True'). 
     Finally, calculate this prime via '2 * i + 1'; 'enumerate()' returns a collection as an enumerate object, adding a counter as its key. """
     primes = [2] + [(2 * i + 1) for i, is_prime in enumerate(sieve) if is_prime]
-    return primes
-  
-if __name__ == '__main__':
     """ time complexity: 'O(n log n)' """
-    sieve_of_sundaram(10 ** 8)
+    return primes
