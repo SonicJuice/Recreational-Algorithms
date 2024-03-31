@@ -16,3 +16,9 @@ Prime-Based Algorithms!
 Cryptographic Algorithms!
 
 - Substitution Cypher ('O(m * k)', where 'm' is the number of lines, and 'k' is the average number of characters per line)
+
+Number Series!
+
+- Harshad Numbers
+
+- Harmonic Series
