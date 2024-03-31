@@ -19,6 +19,6 @@ Cryptographic Algorithms!
 
 Number Series!
 
-- Harshad Numbers
+- Harshad Series
 
 - Harmonic Series
