@@ -1,5 +1,5 @@
 # Python Number Theory Research
-An evironment for testing implementations of number theory-based algorithms that I've researched!
+Implementations of number theory-based algorithms that I've researched!
 
 These include:
 
