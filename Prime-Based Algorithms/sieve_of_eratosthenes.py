@@ -18,8 +18,5 @@ def sieve_of_eratosthenes(limit):
     """ 'np.concatenate()' joins two or more arrays along an axes (row and column); '.nonzero()' computes the indices of non-zero elements, 
     returning a tuple of arrays for each axes."""
     primes = np.concatenate(([2], np.nonzero(prime)[0] * 2 + 1))
-    return primes
-
-if __name__ == '__main__':
     """ time complexity: 'O(n log log n)' """
-    sieveOfEratosthenes(10 ** 8)
+    return primes
