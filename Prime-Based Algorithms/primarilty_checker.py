@@ -1,5 +1,5 @@
 from math import sqrt
-def isPrime(n):
+def is_prime(n):
     """ all primes > 3 are writable as '6k + 1' or '6k - 1', where 'k' is a positive integer. """
     if n <= 3:
         return n > 1
@@ -14,6 +14,5 @@ def isPrime(n):
     return True
 
 if __name__ == '__main__':
-    print(isPrime())
-
-""" time complexity: 'O(sqrt(n))' """
+    """ time complexity: 'O(sqrt(n))' """
+    print(is_prime())
