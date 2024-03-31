@@ -22,7 +22,11 @@ class HarshadSequence:
         if number < 0:
             raise ValueError("number must be a positive integer")
         while number > 0:
-            number, remainder = divmod(number, self.base) # repeatedly divide number by the base and append the remainders, before mapping these to digits 
+            """
+            repeatedly divide number by the base and append the remainders, 
+            before mapping them to digits 
+            """
+            number, remainder = divmod(number, self.base)
             result = digits[remainder] + result
         if result == "":
             result = "0"
