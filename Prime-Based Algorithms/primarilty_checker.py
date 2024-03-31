@@ -12,8 +12,5 @@ def is_prime(n):
         if n % i == 0 or n % (i + 2) == 0:
             return False
         i += 6
-    return True
-
-if __name__ == '__main__':
     """ time complexity: 'O(sqrt(n))' """
-    is_prime(10 ** 8)
+    return True
