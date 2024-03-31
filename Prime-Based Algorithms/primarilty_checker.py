@@ -15,4 +15,4 @@ def is_prime(n):
 
 if __name__ == '__main__':
     """ time complexity: 'O(sqrt(n))' """
-    print(is_prime())
+    is_prime(10 ** 8)
