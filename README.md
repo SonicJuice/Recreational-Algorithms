@@ -1,5 +1,5 @@
-# Python Number Theory Research
-Implementations of number theory-based algorithms that I've researched!
+# Python Number Theory
+Implementations of interesting number theory concepts that I've researched!
 
 These include:
 
