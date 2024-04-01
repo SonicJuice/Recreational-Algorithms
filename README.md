@@ -21,6 +21,6 @@ Cryptographic Algorithms!
 
 Number Series!
 
-- Harshad Series (generated in bases 2-36 w/ time complexity 'O(limit * log(num))', where num is the maximum number from 1 to limit inclusive)
+- Harshad Series (generated in bases 2-36 w/ time complexity 'O(limit * log(num))', where 'num' is the maximum number from 1 to 'limit')
 
 - Harmonic Series
