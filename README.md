@@ -5,20 +5,22 @@ These include:
 
 Prime-Based Algorithms!
 
-- Sieve of Eratosthenes (utilising numpy arrays and having a time complexity of 'O(n log log n)')
+- Sieves!
 
-- Sieve of Atkin ('O(n / log log n)')
+  - Eratosthenes (utilising numpy arrays and w/ time complexity 'O(n log log n)')
 
-- Sieve of Sundaram ('O(n log n)')
+  - Atkin ('O(n / log log n)')
 
-- Primality Checker ('O(sqrt(n))')
+  - Sundaram ('O(n log n)')
+
+- Miller-Rabins Primality Test
 
 Cryptographic Algorithms!
 
-- Substitution Cypher ('O(m * k)', where 'm' is the number of lines, and 'k' is the average number of characters per line)
+- Substitution Cypher ('O(m * k)', where 'm' is the number of lines and 'k' is the average number of characters per line)
 
 Number Series!
 
-- Harshad Series
+- Harshad Series (generated in bases 2-36 w/ time complexity 'O(limit * log(num))', where num is the maximum number from 1 to limit inclusive)
 
 - Harmonic Series
