@@ -3,9 +3,9 @@ Implementations of interesting number theory concepts that I've researched!
 
 These include:
 
-Prime-Based Algorithms!
+Primality Algorithms!
 
-- Sieves!
+- Sieves
 
   - Eratosthenes (utilising numpy arrays and w/ time complexity 'O(n log log n)')
 
@@ -13,14 +13,14 @@ Prime-Based Algorithms!
 
   - Sundaram ('O(n log n)')
 
-- Miller-Rabins Primality Test
+- Miller-Rabins Test
 
 Cryptographic Algorithms!
 
-- Substitution Cypher ('O(m * k)', where 'm' is the number of lines and 'k' is the average number of characters per line)
+- Substitution Cypher (w/ time complexity 'O(m * k)', where 'm' is the number of lines and 'k' is the mean number of characters per line)
 
 Number Series!
 
-- Harshad Series (generated in bases 2-36 w/ time complexity 'O(limit * log(num))', where 'num' is the maximum number from 1 to 'limit')
+- Harshad (generated in bases 2-36 w/ time complexity 'O(limit * log(num))', where 'num' is the maximum number from 1 to 'limit')
 
-- Harmonic Series
+- Harmonic
