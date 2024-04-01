@@ -1,6 +1,6 @@
 
 
-class HarshadSeries:
+class Harshad:
     def __init__(self, base):
         self.base = base
 
