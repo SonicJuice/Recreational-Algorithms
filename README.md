@@ -1,4 +1,4 @@
-# Python Number Theory
+# Python Recreational Maths and Physics
 Implementations of interesting mathematical and physics concepts that I've researched!
 
 These include:
