@@ -18,20 +18,35 @@ def miller_rabin(n):
     d = n - 1
     # base cases ensure 'n' is odd to make 'n - 1' even, expressing it as 'd * 2s'
     while d % 2 == 0:
-        d //= 2 
-        # Fermat's little theorem: 'a^n ≡ a % n' for prime 'n', if 'a' is coprime (i.e. has no common factors w/ 'n' other than 1).
+        d //= 2
+        """
+        Fermat's little theorem: 'a^n ≡ a % n' for prime 'n', if 'a' is coprime 
+        (i.e. has no common factors w/ 'n' other than 1).
+        """
     for _ in range(4):
-        # from the previous points, it can be seen that for a random base 'a' in the range '[2.. n - 2]', 'a^(d * 2^r) % n' must be 1 for 'n' to be prime; more random bases improve accuracy.
+        """
+        from the previous points, it can be seen that for a random base 'a' in the range '[2.. n - 2]', 'a^(d * 2^r) % n' 
+        must be 1 for 'n' to be prime; more random bases improve accuracy.
+        """
         a = 2 + randint(1, n - 4) 
         x = _power(a, d, n) # computer 'a^d mod n'
-        # Euclid's lemma: if prime 'n' divides the product of two numbers '(x * y)', it must divide at least one of those numbers. Thus, '(x^2 % n = 1)' or '(x % n = 1 or x % n = -1)'
+        """
+        Euclid's lemma: if prime 'n' divides the product of two numbers '(x * y)', it must divide at 
+        least one of those numbers. Thus, '(x^2 % n = 1)' or '(x % n = 1 or x % n = -1)'        
+        """
         if x != 1 and x != n - 1: 
             while d != n - 1 and x != n - 1:
                 x = (x * x) % n
                 d *= 2
                 if x == 1:
                     return False
-            # from points 1 and 3, it can be seen that for 'n' to be prime, 'a^d % n = 1' or 'a^(d * 2i) % n = -1' for some 'i', where '0 <= i <= r-1'.
+            """
+            from points 1 and 3, it can be seen that for 'n' to be prime, 'a^d % n = 1' or 'a^(d * 2i) % n = -1' 
+            for some 'i', where '0 <= i <= r-1'.
+            """
             if x != n - 1:
                 return False
+    """
+    time complexity: 'O(k * logn)'
+    """
     return True
