@@ -13,7 +13,7 @@ Primality Algorithms!
 
   - Sundaram ('O(n log n)')
 
-- Miller-Rabins Test
+- Miller-Rabins Test ('O(k * logn)')
 
 Cryptographic Algorithms!
 
