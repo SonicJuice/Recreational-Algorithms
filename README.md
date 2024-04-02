@@ -3,7 +3,7 @@ Implementations of interesting mathematical and physics concepts that I've resea
 
 These include:
 
-Primality Algorithms!
+Primality!
 
 - Sieves
 
@@ -15,7 +15,7 @@ Primality Algorithms!
 
 - Miller-Rabins Test ('O(k * logn)')
 
-Cryptographic Algorithms!
+Cryptography!
 
 - Substitution Cypher (w/ time complexity 'O(m * k)', where 'm' is the number of lines and 'k' is the mean number of characters per line)
 
