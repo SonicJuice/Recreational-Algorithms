@@ -1,5 +1,5 @@
 # Python Number Theory
-Implementations of interesting number theory concepts that I've researched!
+Implementations of interesting mathematical and physics concepts that I've researched!
 
 These include:
 
