@@ -23,4 +23,4 @@ Number Series!
 
 - Harshad (generated in bases 2-36 w/ time complexity 'O(limit * log(num))', where 'num' is the maximum number from 1 to 'limit')
 
-- Harmonic
+- Polygonals ('O(limit)')
