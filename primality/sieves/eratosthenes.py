@@ -6,7 +6,7 @@ def eratosthenes(limit):
       return
   """ np.ones() returns a new array of the given data type 
   with values of 1 to track primality. """  
-  numbers = np.ones((limit - 1) // 2, dtype=bool)
+  numbers = np.ones((limit - 1), dtype=bool)
   numbers[:2] = False
   """ math.isqrt() returns the integer square root of the given non-negative 
   integer This is the floor value of the exact square root of n (i.e the greatest 
