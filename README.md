@@ -1,5 +1,5 @@
-# Python Recreational Maths and Physics
-Implementations of interesting mathematical and physics concepts that I've researched!
+# Python Recreational Mathematics
+Implementations of interesting mathematical concepts that I've researched!
 
 These include:
 
