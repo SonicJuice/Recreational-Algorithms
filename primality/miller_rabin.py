@@ -16,7 +16,6 @@ def miller_rabin(n):
     if n <= 3:
         return True 
     d = n - 1
-    # base cases ensure 'n' is odd to make 'n - 1' even, expressing it as 'd * 2s'
     while d % 2 == 0:
         d //= 2
         """
