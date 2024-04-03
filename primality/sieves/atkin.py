@@ -1,3 +1,5 @@
+import math
+
 def atkin(limit):
     if limit < 2:
         return
