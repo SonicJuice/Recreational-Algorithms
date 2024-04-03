@@ -6,10 +6,10 @@ def eratosthenes(limit):
         return
     """ np.ones() returns a new array of the given data type 
     with values of 1 to track primality. """  
-    size = (limit) // 2
+    size = limit // 2
     numbers = np.ones(size, dtype=bool)
     numbers[:2] = False
-    sqrt_limit = math.isqrt(limit)
+    sqrt_limit = math.isqrt(limit) + 1
     """ math.isqrt() returns the integer square root of the given non-negative 
     integer This is the floor value of the exact square root of n (i.e the greatest 
     integer a such that a^2 <= n. """
