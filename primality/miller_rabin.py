@@ -1,6 +1,6 @@
 from random import randint
 
-def _power(x, y, p):
+def _modular_exponent(x, y, p):
     result = 1 
     x %= p # reduce 'x' if it's '>= p' to prevent overflow
     while y > 0:
@@ -29,7 +29,7 @@ def miller_rabin(n):
         must be 1 for 'n' to be prime; more random bases improve accuracy.
         """
         a = 2 + randint(1, n - 4) 
-        x = _power(a, d, n) # computer 'a^d mod n'
+        x = _modular_exponent(a, d, n) # computer 'a^d mod n'
         """
         Euclid's lemma: if prime 'n' divides the product of two numbers '(x * y)', it must divide at 
         least one of those numbers. Thus, '(x^2 % n = 1)' or '(x % n = 1 or x % n = -1)'        
