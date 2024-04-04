@@ -5,9 +5,11 @@ These include:
 
 Primality!
 
-- Sieves
+- Sieves (utlising nump arrays)
 
-  - Eratosthenes (utilising numpy arrays and w/ time complexity 'O(n log log n)')
+  - Eratosthenes ('O(n log log n)')
+
+  - Sundaram ('O(n log n)')
 
   - Atkin ('O(n / log log n)')
 
