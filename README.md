@@ -11,8 +11,6 @@ Primality!
 
   - Atkin ('O(n / log log n)')
 
-  - Sundaram ('O(n log n)')
-
 - Miller-Rabins Test ('O(k * logn)')
 
 Cryptography!
