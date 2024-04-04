@@ -5,7 +5,7 @@ These include:
 
 Primality!
 
-- Sieves (utlising nump arrays)
+- Sieves (utlising numpy arrays)
 
   - Eratosthenes ('O(n log log n)')
 
