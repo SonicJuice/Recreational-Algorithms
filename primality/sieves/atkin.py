@@ -1,5 +1,3 @@
-import math
-
 def atkin(limit):
     if limit < 2:
         return
@@ -9,7 +7,7 @@ def atkin(limit):
     sieve = [False] * (limit + 1)
     primes = [2, 3]
     sqrt_limit = math.isqrt(limit)
-    
+
     for x in range(1, sqrt_limit + 1):
         for y in range(1, sqrt_limit + 1):
             x_square = x * x
@@ -42,10 +40,10 @@ def atkin(limit):
                 sieve[k] = False
 
     """ append sieved primes. """
-    for n in range(5, limit + 1):
+    for n in range(5, limit + 1, 2):
         if sieve[n]:
             primes.append(n)
-      
+
     """ time complexity: 'O(n / log log n)'; traditionally faster than Eratosthenes
     as more composites are sieved in fewer iterations. """
     return primes
