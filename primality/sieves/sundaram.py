@@ -1,3 +1,6 @@
+import math
+import numpy as np
+
 def sundaram(n):
     """ only focuses on odd numbers. """
     limit = (n - 1) // 2
