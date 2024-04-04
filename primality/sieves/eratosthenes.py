@@ -2,7 +2,8 @@ import math
 import numpy as np
 
 def eratosthenes(n):
-  limit = math.isqrt(n) + 1
+  """ limit accounts for odd numbers only, as no primes except 2 are even """
+  limit = math.isqrt((n - 1) // 2) + 1
   """ np.ones() returns a new array of the given data type 
   with values of 1 to track primality. """
   primes = np.ones(n + 1, dtype=bool)
@@ -18,6 +19,6 @@ def eratosthenes(n):
       if primes[j]:
           """ mark multiples of prime as non-prime """
           primes[j * j :: 2 * j] = False
-
+        
   """ np.nonzero() returns the indices of the non-zero values """
   return np.flatnonzero(primes)
