@@ -24,8 +24,8 @@ def miller_rabin(n):
         """
     for _ in range(4):
         """
-        from the previous points, it can be seen that for a random base 'a' in the range '[2.. n - 2]', 'a^(d * 2^r) % n' 
-        must be 1 for 'n' to be prime; more random bases improve accuracy.
+        from the previous point, it can be seen that for a random base 'a' in the range '[2.. n - 2]', 'a^(d * 2^r) % n' 
+        must be 1 for 'n' to be prime; more random base selections improve accuracy.
         """
         a = 2 + randint(1, n - 4) 
         x = _modular_exponent(a, d, n) # computer 'a^d mod n'
@@ -41,7 +41,7 @@ def miller_rabin(n):
                     return False
             """
             from points 1 and 3, it can be seen that for 'n' to be prime, 'a^d % n = 1' or 'a^(d * 2i) % n = -1' 
-            for some 'i', where '0 <= i <= r-1'.
+            for some 'i' where '0 <= i <= r-1'.
             """
             if x != n - 1:
                 return False
