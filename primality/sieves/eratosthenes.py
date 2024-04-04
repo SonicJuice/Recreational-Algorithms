@@ -25,5 +25,6 @@ def eratosthenes(n):
         if primes[j]:
             primes[j * j :: 2 * j] = False
   
-    """ np.nonzero() returns the indices of the non-zero values """
+    """ np.nonzero() returns the indices of the non-zero values; time complexity: 
+    'O(n log log n)'"""
     return np.flatnonzero(primes)
