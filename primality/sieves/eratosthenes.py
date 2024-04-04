@@ -19,8 +19,8 @@ def eratosthenes(n):
             primes[i * i :: 2 * i] = False
   
     for j in range(7, limit, 6):
-        """ only marks odd multiples; start from i * i since all multiples < this would
-        have already been marked as composite, and moves in steps of 2i to skip even 
+        """ only mark odd multiples; start from i * i since all multiples < this would
+        have already been marked as composite, and move in steps of 2i to skip even 
         multiples, which are already marked as composite). """
         if primes[j]:
             primes[j * j :: 2 * j] = False
