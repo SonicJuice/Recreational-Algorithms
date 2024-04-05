@@ -5,7 +5,7 @@ These include:
 
 Primality!
 
-- Sieves (utlising numpy arrays)
+- Sieves (the first two utlise numpy arrays)
 
   - Eratosthenes ('O(n log log n)')
 
@@ -17,10 +17,10 @@ Primality!
 
 Cryptography!
 
-- Substitution Cypher (w/ time complexity 'O(m * k)', where 'm' is the number of lines and 'k' is the mean number of characters per line)
+- Substitution Cypher ('O(m * k)', where 'm' is the number of lines and 'k' is the mean number of characters per line)
 
 Number Series!
 
-- Harshad (generated in bases 2-36 w/ time complexity 'O(limit * log(num))', where 'num' is the maximum number from 1 to 'limit')
+- Harshad (in bases 2-36)
 
-- Figurates ('O(n)')
+- Figurates
