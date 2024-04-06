@@ -7,10 +7,10 @@ def sundaram(n):
     """ beyond sqrt_limit, (i + j + 2 * i * j) becomes > limit. Thus, iterating up to 
     sqrt_limit ensures all possible combinations of (i, j) are covered non-redundantly. 
     """
-    sqrt_limit = math.isqrt(limit) + 1
+    upper_bound = math.isqrt(limit) + 1
     primes = np.ones(limit, dtype=bool)
-    
-    for i in range(1, sqrt_limit):
+
+    for i in range(1, upper_bound):
         if primes[i]:
             """
             an integer q of the form 2x + 1 is excluded if and only if 
