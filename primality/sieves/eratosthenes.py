@@ -12,15 +12,14 @@ def eratosthenes(n):
     multiples of 3 also are, being marked via a step of 6 from index 9. """
     primes[:2] = primes[4::2] = primes[9::6] = False
 
-    """ all primes excluding 2 and 3 can be written in the form 6k +/- 1; thus, iterate 
-    through and mark all numbers in these forms. """
-    for i in range(5, math.isqrt(upper_bound), 6):
+    """ all primes excluding 2 and 3 can be written in the form. """
+    for i in range(5, upper_bound, 6):
         if primes[i]:
             primes[i * i :: 2 * i] = False
 
     for j in range(7, upper_bound, 6):
-        """ only mark odd multiples; start from i * i since all multiples < this would
-        have already been marked as composite, and move in steps of 2i to skip even 
+        """ only mark odd multiples; start from j * j since all multiples < this would
+        have already been marked as composite, and move in steps of 2j to skip even 
         multiples, which are already marked as composite). """
         if primes[j]:
             primes[j * j :: 2 * j] = False
