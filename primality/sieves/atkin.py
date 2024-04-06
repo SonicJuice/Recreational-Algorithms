@@ -1,12 +1,13 @@
+import numpy as np
 import math
 
 def atkin(limit):
     """ all numbers within the limit are deemed composites, which are sieved in 
     three layers: """
-    sieve = [False] * (limit + 1)
-    sqrt_limit = int(math.sqrt(limit)) + 1
-    x_squared = [x * x for x in range(1, sqrt_limit)]
-    y_squared = [y * y for y in range(1, sqrt_limit)]
+    sieve = np.zeros(limit + 1, dtype=bool)
+    upper_bound = int(math.sqrt(limit)) + 1
+    x_squared = [x * x for x in range(1, upper_bound)]
+    y_squared = [y * y for y in range(1, upper_bound)]
 
     for x_sq in x_squared:
         for y_sq in y_squared:
@@ -31,10 +32,10 @@ def atkin(limit):
                     sieve[n] = not sieve[n]
 
     """ mark all multiples of squares as non-prime. """    
-    for n in range(5, sqrt_limit, 2):
+    for n in range(5, upper_bound, 2):
         if sieve[n]:
             n_sq = n * n
-            sieve[n_sq::n_sq] = [False] * ((limit - n_sq) // n_sq + 1)
+            sieve[n_sq::n_sq] = [False] * (limit - n_sq // n_sq + 1)
 
     """ append sieved primes. """
     primes = [2, 3, 5]
