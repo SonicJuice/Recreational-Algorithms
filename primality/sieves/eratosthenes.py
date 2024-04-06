@@ -12,7 +12,7 @@ def eratosthenes(n):
     multiples of 3 also are, being marked via a step of 6 from index 9. """
     primes[:2] = primes[4::2] = primes[9::6] = False
 
-    """ all primes excluding 2 and 3 can be written in the form. """
+    """ all primes excluding 2 and 3 can be written in the form 6k +/- 1. """
     for i in range(5, upper_bound, 6):
         if primes[i]:
             primes[i * i :: 2 * i] = False
