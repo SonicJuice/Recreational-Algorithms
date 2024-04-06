@@ -35,7 +35,7 @@ def atkin(limit):
     for n in range(5, upper_bound, 2):
         if sieve[n]:
             n_sq = n * n
-            sieve[n_sq::n_sq] = [False] * (limit - n_sq // n_sq + 1)
+            sieve[n_sq::n_sq] = [False] * ((limit - n_sq) // n_sq + 1)
 
     """ append sieved primes. """
     primes = [2, 3, 5]
