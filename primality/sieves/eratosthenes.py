@@ -24,6 +24,6 @@ def eratosthenes(n):
         if primes[j]:
             primes[j * j :: 2 * j] = False
 
-    """ np.nonzero() returns the indices of condition-satisfying elements; time complexity: 
+    """ np.where() returns the indices of condition-satisfying elements; time complexity: 
     'O(n log log n)'"""
-    return np.where(primes)[0]
+    return np.where(primes)[0])
