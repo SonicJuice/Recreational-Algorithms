@@ -26,4 +26,4 @@ def eratosthenes(n):
 
     """ np.where() returns the indices of condition-satisfying elements; time complexity: 
     'O(n log log n)'"""
-    return np.where(primes)[0])
+    return np.where(primes)[0]
