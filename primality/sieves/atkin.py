@@ -5,7 +5,7 @@ def atkin(limit):
     """ all numbers within the limit are deemed composites, which are sieved in 
     three layers: """
     sieve = np.zeros(limit + 1, dtype=bool)
-    upper_bound = int(math.sqrt(limit)) + 1
+    upper_bound = math.isqrt(limit) + 1
     x_squared = [x * x for x in range(1, upper_bound)]
     y_squared = [y * y for y in range(1, upper_bound)]
 
