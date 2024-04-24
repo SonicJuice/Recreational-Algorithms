@@ -37,6 +37,7 @@ def atkin(limit):
             n_sq = n * n
             sieve[n_sq::n_sq] = [False] * ((limit - n_sq) // n_sq + 1)
 
-    """ append sieved primes; time complexity: 'O(n / log log n)'. This is traditionally 
-    faster than Eratosthenes as more composites are sieved in fewer iterations. """
+    """ append sieved primes; time complexity: 'O(n / log log n)'. This is 
+    traditionally faster than Eratosthenes as more composites are sieved in fewer 
+    iterations. """
     return np.r_[2, 3, 5, np.nonzero(sieve)[0]]
