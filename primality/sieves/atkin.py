@@ -17,18 +17,18 @@ def atkin(limit):
             of solutions and if they are square-free (i.e. not divisible by 
             any perfect square besides 1)."""
             n = 4 * x_sq + y_sq
-            if n <= limit and n % 60 in set(1, 13, 17, 29, 37, 41, 49, 53):
+            if n <= limit and n % 60 in {1, 13, 17, 29, 37, 41, 49, 53}:
                 sieve[n] = not sieve[n]
 
             """ b) if n = 3x^2 + y^2 is odd and n % 60 = 7, 11, 19, 31, or 37 """
             n = 3 * x_sq + y_sq
-            if n <= limit and n % 60 in set(7, 19, 31, 43):
+            if n <= limit and n % 60 in {7, 19, 31, 43}:
                 sieve[n] = not sieve[n]
 
             """ c) if n = 3x^2 - y^2 is odd and n % 60 = 11, 23, 47 or 59. """
             if x_sq > y_sq:
                 n = 3 * x_sq - y_sq
-                if n <= limit and n % 60 in set(11, 23, 47, 59):
+                if n <= limit and n % 60 in {11, 23, 47, 59}:
                     sieve[n] = not sieve[n]
 
     """ mark all multiples of squares as non-prime. """    
