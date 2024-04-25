@@ -31,8 +31,6 @@ class Harshad:
     def harshad_numbers(self, limit):
         if self.base < 2 or self.base > 36:
             raise ValueError("Base must be between 2 and 36 inclusive.")
-        for i in range(1, limit + 1):
-            if i % self._digit_sum(i) == 0: # harshads are divisible by their digit sums in some base n.
-                """ time complexity: 'O(limit * log(num))', where num is the maximum number from 1 to limit 
-                (inclusive). """
-                yield self._int_to_base(i)
+        """ time complexity: 'O(limit * log(num))', where num is the maximum number 
+        from 1 to limit (inclusive). """
+        return [self._int_to_base(i) for i in range(1, limit + 1) if i % self._digit_sum(i) == 0] #  harshads are divisible by their digit sums in some base n.
