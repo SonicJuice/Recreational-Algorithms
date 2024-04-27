@@ -3,26 +3,26 @@ import math
 
 def eratosthenes(n):
     """ np.ones() returns a new array of the given data type 
-    with values of 1 to track primality. """
-    primes = np.ones(n, dtype=bool)
-    """ reaching isqrt(n) means all composites have already been marked. """
-    upper_bound = math.isqrt(len(primes)) + 1
-    """ even numbers are marked as composite by moving with a step of 2 from index 
-    4; as are multiples of 3, being marked via a step of 6 from index 9. """
-    primes[:2] = primes[4::2] = primes[9::6] = False
-
-    """ all primes besides 2 and 3 can be written as 6k +/- 1. """
-    for i in range(5, upper_bound, 6):
-        if primes[i]:
-            primes[i * i :: 2 * i] = False
-
-    for j in range(7, upper_bound, 6):
-        if primes[j]:
-            """ only mark odd multiples; start from j * j since lower multiples 
-            would have already been marked as composite. Move in steps 
-            of 2j to skip even multiples. """
-            primes[j * j :: 2 * j] = False
-
-    """ np.flatnonzero() returns non-zero indices in the flattened version of a; 
+    with values of 1 to track primality. For every three numbers, two 
+    aren't divisible by 3. (n % 6 == 2) accounts for when n isn't 
+    divisible by 6 and, thus, might include an additional prime."""
+    sieve = np.ones(n // 3 + (n % 6 == 2), dtype=bool)
+  
+    """ reaching isqrt(len(sieve)) means all composites have already been 
+    marked; // 3 only accounts for odds """
+    for i in range(1, math.isqrt(len(sieve)) + 1 // 3):
+        if sieve[i]:
+            """ formula for the current prime; bitwise OR with 1 ensures 
+            this is always odd. """
+            k = 3 * i + 1 | 1
+            """ mark multiples of k (starting from k^2) as composite. """
+            sieve[k * k // 3 :: 2 * k] = False
+            """ if i is even, (i & 1) equals 0, simplifying the expression to k * 
+            (k + 4) // 3, marking multiples congruent to 1 mod 6. If i is odd, (i 
+            & 1) equals 1, simplifying the expression to k * (k + 2) // 3, 
+            marking multiples congruent to 5 mod 6 """
+            sieve[k * (k - 2 * (i & 1) + 4) // 3 :: 2 * k] = False
+    """ np.r_ concatenates array slices along row (first) 
+    axis. np.nonzero() returns the indices of non-zero array elements; 
     time complexity: O(n log log n) """
-    return np.flatnonzero(primes)
+    return np.r_[2, 3, ((3 * np.nonzero(sieve)[0][1:] + 1) | 1)]
