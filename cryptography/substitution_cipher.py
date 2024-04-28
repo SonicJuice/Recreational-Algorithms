@@ -1,107 +1,91 @@
-from random import randint
-from pathlib import Path
+import string
+import logging
+from datetime import datetime
+
 
 class SubstitutionCipher:
     def __init__(self):
-        self.valid_choices = ["a", "b", "c"]
-        self.cipher_key = None
-        self.key_vals = None
+        self.jumps = 0
+        self.alphabet = string.ascii_lowercase
+        self.shifted_alphabet = {}
+        """ logging.getLogger returns a reference to a logger instance with the 
+        specified name to record events during program execution. """
+        self.logger = logging.getLogger("SubstitutionCipher")
+
+    def instantiate(self):
+        while True:
+            try:
+                self.jumps = int(input("Enter the preferred number of character jumps (1-26): "))
+                if 1 <= self.jumps <= 26:
+                    """ initialise shifted encryption/decryption alphabets. """
+                    self.shifted_alphabet["encrypt"] = self.alphabet[self.jumps:] + self.alphabet[:self.jumps]
+                    self.shifted_alphabet["decrypt"] = self.alphabet[-self.jumps:] + self.alphabet[:-self.jumps]
+                    """ logging.info() records events within the parameters of 
+                    expected behavior. """
+                    self.logger.info(f"Encryption parameters set with jumps: {self.jumps}")
+                    return self.jumps
+            except ValueError:
+                """ logging.info() records unexpected failures. """
+                self.logger.error("Invalid input for jumps, must be an integer.")
+
+    def encrypt(self):
+        plain_text = input("Enter text: ")
+        """ str.maketrans() creates a one to one mapping of a character to its 
+        translation; upper() returns a string of all upper case characters. """
+        encrypt_map = str.maketrans(self.alphabet + self.alphabet.upper(), self.shifted_alphabet["encrypt"] + self.shifted_alphabet["encrypt"].upper())
+        """ str.translate() returns a string where each character is mapped to 
+        its corresponding character in the translation table. """
+        cipher_text = plain_text.translate(encrypt_map)
+        print(cipher_text)
+        self.logger.info(f"Encrypted '{plain_text}' to '{cipher_text}'")
+
+    def decrypt(self):
+        cipher_text = input("Enter message: ")
+        decrypt_map = str.maketrans(self.alphabet + self.alphabet.upper(), self.shifted_alphabet["decrypt"] + self.shifted_alphabet["decrypt"].upper())
+        plain_text = cipher_text.translate(decrypt_map)
+        print(plain_text)
+        self.logger.info(f"Decrypted '{cipher_text}' to '{plain_text}'")
 
     def menu(self):
-        print("""
-Welcome!
------------
-a. Encrypt
-b. Decrypt
-c. Exit""")
-        while True:
-            choice = input("-> ").lower()
-            if choice in self.valid_choices:
-                return choice
+        choice = ""
+        exit_flag = False
+        while not exit_flag:
+            print("""
+1. Instantiate encryption parameters
+2. Encrypt text
+3. Decrypt text
+4. Reset encryption parameters
+5. Exit
+""")
+            choice = input("-> ")
 
-    def _load_file(self, file_name):
-        file_path = Path(file_name + ".txt")
-        """ pathlib.Path.exists() returns a Boolean based on if a file exists 
-        in the data directory. """
-        if file_path.exists():
-            with file_path.open("rt") as file:
-                return [line.strip() for line in file]
+            if choice == "1":
+                self.instantiate()
+                input("Press Enter to continue...")
 
-    def save_file(self, file_name, contents):
-        file_path = Path(file_name + ".txt")
-        with file_path.open("wt") as file:
-            file.write("\n".join(contents))
+            elif choice == "2":
+                self.encrypt()
+                input("Press Enter to continue...")
 
-    def generate_key(self):
-        """ chr() returns the character of a given Unicode, which generates 
-        eight random ASCII characters; .join() joins all elements of an iterable 
-        into one string. """
-        self.cipher_key = "".join(chr(randint(33, 126)) for _ in range(8))
-        self.key_vals = [ord(key_char) for key_char in self.cipher_key]
-        print("Cipher Key:", self.cipher_key)
-        return self.cipher_key
+            elif choice == "3":
+                self.decrypt()
+                input("Press Enter to continue...")
 
-    def encrypt(self, plain_text, cipher_key):
-        """ ord() returns the Unicode of a given character, being performed on 
-        each cipher_key character. """
-        key_vals = [ord(key_char) for key_char in cipher_key]
-        return ["".join(self._encrypt_char(char, key_vals) for char in line) for line in plain_text]
+            elif choice == "4":
+                self.jumps = 0
+                self.shifted_alphabet.clear()
+                self.logger.info("Encryption parameters reset.")
+                print("Resetting...")
+                input("Press Enter to continue...")
 
-    def _encrypt_char(self, char, key_vals):
-        """ add cipher_key characters' corresponding Unicode. """
-        val = ord(char) + key_vals[0]
-        """ ensure the result stays within the printable ASCII range. """
-        while val > 126:
-            val -= 94
-        while val < 33:
-            val += 94
-        return chr(val)
-
-    def read_decrypted(self):
-        while True:
-            file_name = input("Enter file name: ")
-            file_path = Path(file_name + ".txt")
-            if file_path.exists():
-                cipher_key = input("Enter cipher key: ")
-                contents = self._load_file(file_name)
-                if contents is not None:
-                    return contents, cipher_key
-            else:
-                print("File not found.")
-
-    def decrypt(self, cipher_text, cipher_key):
-        key_vals = [ord(key_char) for key_char in cipher_key]
-        return ["".join(self._decrypt_char(char, key_vals) for char in line) for line in cipher_text]
-
-    def _decrypt_char(self, char, key_vals):
-        val = ord(char) - key_vals[0]
-        while val < 33:
-            val += 94
-        while val > 126:
-            val -= 94
-        return chr(val)
-
-def main():
-    """ time complexity: O(m * k), where m is the number of lines, and k is the 
-    mean number of characters per line. """
-    cipher = SubstitutionCipher()
-    while True:
-        choice = cipher.menu()
-        if choice == "a":
-            plain_text = input("Enter message to encrypt: ")
-            cipher_key = cipher.generate_key() 
-            cipher_text = cipher.encrypt([plain_text], cipher_key)
-            file_name = input("Enter file name to save encrypted text as: ")
-            cipher.save_file(file_name, cipher_text)
-          
-        elif choice == "b":
-            contents, cipher_key = cipher.read_decrypted()
-            cipher_text = cipher.decrypt(contents, cipher_key)
-            file_name = input("Enter file name to save decrypted text as: ")
-            cipher.save_file(file_name, cipher_text)
-          
-        elif choice == "c":
-            return
+            elif choice == "5":
+                print("Exiting...")
+                exit_flag = True
 
 if __name__ == "__main__":
-    main()
+    """ logging.basicConfig() establishes the default behaviour of the 
+    logging system in terms of message severity and format. """
+    logging.basicConfig(filename='cipher.log', level=logging.INFO,
+      format='%(asctime)s - %(levelname)s - %(message)s')
+    """ time complexity: O(n). """
+    SubstitutionCipher().menu()
