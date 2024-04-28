@@ -85,7 +85,7 @@ class SubstitutionCipher:
 if __name__ == "__main__":
     """ logging.basicConfig() establishes the default behaviour of the 
     logging system in terms of message severity and format. """
-    logging.basicConfig(filename='cipher.log', level=logging.INFO,
-      format='%(asctime)s - %(levelname)s - %(message)s')
+    logging.basicConfig(filename="substiution_cipher.log", level=logging.INFO,
+      format="%(asctime)s - %(levelname)s - %(message)s")
     """ time complexity: O(n). """
     SubstitutionCipher().menu()
