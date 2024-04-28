@@ -21,7 +21,8 @@ class Harshad:
             raise ValueError("Number must be a positive integer.")
         while number > 0:
             """ repeatedly divide number by the base and append the remainders, 
-            before mapping them to digits. """
+            before mapping them to digits. divmod() returns a tuple containing 
+            the quotient and remainder when argument1 is divided by argument2. """
             number, remainder = divmod(number, self.base)
             result = digits[remainder] + result
         if result == "":
@@ -31,6 +32,6 @@ class Harshad:
     def harshad_numbers(self, limit):
         if self.base < 2 or self.base > 36:
             raise ValueError("Base must be between 2 and 36 inclusive.")
-        """ time complexity: 'O(limit * log(num))', where num is the maximum number 
-        from 1 to limit (inclusive). """
-        return [self._int_to_base(i) for i in range(1, limit + 1) if i % self._digit_sum(i) == 0] #  harshads are divisible by their digit sums in some base n.
+        """ time complexity: O(limit * log(num)), where num is the maximum 
+        number < limit. """
+        return [self._int_to_base(i) for i in range(1, limit) if i % self._digit_sum(i) == 0] # harshads are divisible by their digit sums in some base n.
