@@ -12,7 +12,7 @@ Implementations of interesting mathematical concepts that I've researched!
 - Atkin (O(n / log log n))
 
 ## Cryptography
-- Substitution Cypher (O(m * k), where m is the number of lines and k is the mean number of characters per line)
+- Substitution Cypher (O(n))
 
 ## Number Series
 - Harshad (in bases 2-36)
