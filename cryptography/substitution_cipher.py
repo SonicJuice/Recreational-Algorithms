@@ -29,6 +29,9 @@ class SubstitutionCipher:
                 self.logger.error("Invalid input for jumps, must be an integer.")
 
     def encrypt(self):
+        if self.jumps == 0:
+            print("Number of character jumps not set.")
+            return self.logger.error("Number of character jumps not set.")
         plain_text = input("Enter text: ")
         """ str.maketrans() creates a one to one mapping of a character to its 
         translation; upper() returns a string of all upper case characters. """
@@ -40,6 +43,9 @@ class SubstitutionCipher:
         self.logger.info(f"Encrypted '{plain_text}' to '{cipher_text}'")
 
     def decrypt(self):
+        if self.jumps == 0:
+            print("Number of character jumps not set.")
+            return self.logger.error("Number of character jumps not set.")
         cipher_text = input("Enter message: ")
         decrypt_map = str.maketrans(self.alphabet + self.alphabet.upper(), self.shifted_alphabet["decrypt"] + self.shifted_alphabet["decrypt"].upper())
         plain_text = cipher_text.translate(decrypt_map)
