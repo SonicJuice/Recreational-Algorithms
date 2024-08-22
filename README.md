@@ -1,4 +1,4 @@
-# Python Recreational Mathematics
+# Recreational Mathematics
 Implementations of interesting mathematical concepts that I've researched!
 
 ## Primality
