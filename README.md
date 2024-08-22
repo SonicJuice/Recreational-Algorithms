@@ -14,4 +14,4 @@ Implementations of interesting mathematical concepts that I've researched!
 
 ## Number Types
 - Harshad
-- Figurates
+- Figurate
