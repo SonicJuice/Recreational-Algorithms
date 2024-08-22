@@ -10,5 +10,5 @@ Implementations of interesting mathematical concepts that I've researched!
 ## Cryptography
 - Substitution Cipher
 ## Number Types
-- Harshad
-- Figurate
+- Harshads
+- Figurates
