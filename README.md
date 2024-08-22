@@ -2,19 +2,16 @@
 Implementations of interesting mathematical concepts that I've researched!
 
 ## Primality
-- Miller-Rabins Test (O(k * logn))
+- Miller-Rabins Test
     
 ### Sieves
-- Eratosthenes (O(n log log n))
-
-- Sundaram (O(n log n))
-
-- Atkin (O(n / log log n))
+- Eratosthenes
+- Sundaram
+- Atkin
 
 ## Cryptography
-- Substitution Cipher (O(n))
+- Substitution Cipher
 
-## Number Series
-- Harshad (in bases 2-36)
-
+## Number Types
+- Harshad
 - Figurates
