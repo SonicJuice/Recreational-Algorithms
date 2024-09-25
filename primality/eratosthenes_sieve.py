@@ -1,7 +1,7 @@
 import numpy as np
 import math
 
-def eratosthenes(n):
+def eratosthenes_sieve(n):
     """ np.ones() returns a new array of the given data type 
     with values of 1 to track primality. For every three numbers, two 
     aren't divisible by 3. (n % 6 == 2) accounts for when n isn't 
