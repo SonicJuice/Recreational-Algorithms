@@ -3,11 +3,7 @@ Implementations of interesting mathematical concepts that I've researched!
 
 ## Primality
 - Miller-Rabins Test
-
-### Sieves
-- Eratosthenes
-- Sundaram
-- Atkin
+- Sieve of Eratosthenes
 
 ## Cryptography
 - Substitution Cipher
