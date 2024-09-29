@@ -6,7 +6,7 @@ Implementations of interesting algorithms that I've researched!
 - Sieve of Eratosthenes
 
 ## Cryptographic Methods
-- Blowfish Cipher
+- Twofish Cipher
 
 ## Searches and Sorts
 - Quick Sort
