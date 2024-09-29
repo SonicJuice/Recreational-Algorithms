@@ -1,13 +1,16 @@
-# Recreational Mathematics
-Implementations of interesting mathematical concepts that I've researched!
+# Recreational Algorithms
+Implementations of interesting algorithms that I've researched!
 
-## Primality
+## Number Theory
 - Miller-Rabins Test
 - Sieve of Eratosthenes
 
-## Cryptography
+## Cryptographic Methods
 - Substitution Cipher
 
-## Number Types
-- Harshads
-- Figurates
+## Searches and Sorts
+- Quick Sort
+- Binary Search
+
+## Information Theory
+- Levenshtein Distance
