@@ -1,16 +1,8 @@
 def levenshtein_distance(token1, token2): 
-    """ 
-    calculates minimum number of single-character edits to convert one string 
-    into another 
-    RETURNS: int 
-    """ 
-
     len_token1 = len(token1) 
     len_token2 = len(token2) 
 
-# only need the previous row values are necessary for computation 
-
-    if len_token1 > len_token2: 
+    if len_token1 > len_token2: # only the previous row values are necessary for computation 
         token1, token2 = token2, token1 
         len_token1, len_token2 = len_token2, len_token1
 
@@ -28,4 +20,4 @@ def levenshtein_distance(token1, token2):
                 distances[i] = 1 + min(distances[i - 1], distances[i], prev_diagonal) # update based on which one is the minimum value 
                 prev_diagonal = current_diagonal 
 
-    return distances[len_token1] # represents final Levenshtein distance
+    return distances[len_token1]
