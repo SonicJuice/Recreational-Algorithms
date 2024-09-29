@@ -2,7 +2,7 @@
 Implementations of interesting algorithms that I've researched!
 
 ## Number Theory
-- Miller-Rabins Test
+- Miller-Rabin Test
 - Sieve of Eratosthenes
 
 ## Cryptographic Methods
